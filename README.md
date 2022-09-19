@@ -1,5 +1,58 @@
-gi
+<h1 align="center">Учебный проект веб-приложения «Чат»</h1>
+    <h3>
+      Автодеплой проекта настроен по адресу
+      <a href="https://gentle-donut-8f5273.netlify.app/"
+        >https://gentle-donut-8f5273.netlify.app/</a
+      >
+    </h3>
+    <h4 style="color: #e10404">Проект находится в стадии разработки</h4>
 
+    <ul>
+      <li>
+        В этом проекте разрабатывается функционал работы чата. Сайт запускается в режиме разработки
+        по команде "npm run dev" на порту 1234 и в режиме продакшен по команде "npm run start" на
+        порту 3000
+      </li>
+      <li>
+        Для проекта используются инструменты для автоматизации ручной сборки приложения - Parcel,
+        Webpack. Также для разработки серверных и сетевых приложений в качестве dev-сервера для
+        разработчиков используется инструмент Node.JS.
+      </li>
+      <li>
+        При работе над проектом для автоматизации применяется шаблонизатор Handlebars и препроцессор
+        Sass/SCSS
+      </li>
+      <li>
+        Приложение "Чат" состоит из экранов - Страница авторизации, Страница регистрации, Страница
+        со списком чатов, Страница с чатом, Страница профиля, Страница 404, Страница 5xx-ошибок
+      </li>
+    </ul>
+
+    <h4>Ссылки на макеты</h4>
+    <div>
+      <p>
+        <a
+          href="https://www.figma.com/proto/FfdDQ9wk5dd4dspcFMn2V4/Untitled?embed_host=share&kind=&node-id=2%3A53&page-id=0%3A1&scaling=min-zoom&viewport=68%2C311%2C0.13"
+          >Авторизация</a
+        >
+        <a
+          href="https://www.figma.com/proto/FfdDQ9wk5dd4dspcFMn2V4/Untitled?page-id=0%3A1&node-id=38%3A43&viewport=68%2C311%2C0.13&scaling=min-zoom"
+          >Страница 404</a
+        >
+        <a
+          href="https://www.figma.com/proto/FfdDQ9wk5dd4dspcFMn2V4/Untitled?page-id=0%3A1&node-id=35%3A2&viewport=68%2C311%2C0.13&scaling=min-zoom"
+          >Страница регистрации</a
+        >
+        <a
+          href="https://www.figma.com/proto/FfdDQ9wk5dd4dspcFMn2V4/Untitled?page-id=0%3A1&node-id=47%3A48&viewport=68%2C311%2C0.13&scaling=min-zoom"
+          >Страница чата</a
+        >
+        <a
+          href="https://www.figma.com/proto/FfdDQ9wk5dd4dspcFMn2V4/Untitled?page-id=0%3A1&node-id=156%3A166&viewport=68%2C311%2C0.13&scaling=min-zoom"
+          >Страница профиля</a
+        >
+      </p>
+    </div>
     <h4>Описание</h4>
     <ul>
       <li>
