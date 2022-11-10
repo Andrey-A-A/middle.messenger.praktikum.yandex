@@ -1,8 +1,5 @@
-// require('babel-core/register');
 import Block from '../../core/Block';
 import {withUser, withStore, withRouter } from '../../utils';
-import { CoreRouter } from '../../core';
-import { Store } from '../../core/Store';
 import { passwordUp } from '../../services/auth';
 import Input from '../../components/input';
 import Data from '../../components/data';

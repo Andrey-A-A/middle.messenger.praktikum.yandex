@@ -3,8 +3,8 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const process = require('process');
-require('dotenv').config(".env");
-
+const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
+const webpack = require('webpack');
 
 const isProduction = process.env.NODE_ENV == "production";
 
@@ -26,6 +26,9 @@ const config = {
     }),
 
     new MiniCssExtractPlugin(),
+    new webpack.DefinePlugin({     
+        'process.env.WS_ENDPOINT': JSON.stringify(process.env.WS_ENDPOINT),       'process.env.API_ENDPOINT': JSON.stringify(process.env.API_ENDPOINT),    
+    })
   ],
   module: {
     rules: [

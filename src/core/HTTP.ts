@@ -1,4 +1,5 @@
 import { request } from "http";
+import process from 'process';
 
 enum METHOD {
   GET = 'GET',
@@ -9,20 +10,16 @@ enum METHOD {
 
 export type Options = {
   method?: METHOD;
-  //data?: any;
   data?: Record<string, unknown> | string;
   timeout?: number;
   headers?: Record<string, string>
 };
-
-// type OptionsWithoutMethod = Omit<Options, 'method'>;
 
 function queryStringify(data: Record<string, unknown> | string) {
   if (typeof data !== 'object') {
     throw new Error('Data must be object');
   }
 
-  // Здесь достаточно и [object Object] для объекта
   const keys = Object.keys(data);
   return keys.reduce((result, key, index) => {
     return `${result}${key}=${data[key]}${index < keys.length - 1 ? '&' : ''}`;
@@ -49,7 +46,7 @@ class HTTP {
 
   request = (url:string, options: Options = {method: METHOD.GET}) => {
     const { headers = {'Content-Type': 'application/json'}, method, data } = options;
-    const realUrl = `https://ya-praktikum.tech/api/v2${url}`
+    const realUrl = `${process.env.API_ENDPOINT}${url}`
 
     return new Promise(function (resolve, reject) {
       if (!method) {

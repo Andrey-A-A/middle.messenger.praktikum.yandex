@@ -1,7 +1,6 @@
 import Block from '../../core/Block';
 import avatar from '../../assets/img/avatar.png';
-import {urlAPI} from '../../index';
-
+import process from 'process';
 
 type ChatItemProps = {
   onClick?: () => void;
@@ -13,6 +12,7 @@ type ChatItemProps = {
   id?: number;
   href?: string;
 } 
+
 export class ChatItem extends Block {
   static componentName = 'ChatItem';
 
@@ -25,7 +25,7 @@ export class ChatItem extends Block {
     <div class='chats__list active' data-id='{{id}}'>
       <div class='chats__list-avatar'>
       {{#if avatar}}
-        <img src="${urlAPI}/resources/{{avatar}}" width="45" height="45" alt="avatar"/>
+        <img src="${process.env.API_ENDPOINT}/resources/{{avatar}}" width="45" height="45" alt="avatar"/>
       {{else}}
         <img src="${avatar}" width="45" height="45" alt="avatar"/>
       {{/if}}

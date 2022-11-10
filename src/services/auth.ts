@@ -67,8 +67,7 @@ export const userUp = async (
   dispatch({ isLoading: true });
 
   const response = await userAPI.userUp(action);
-  console.log('response', response);
-
+  
   if (apiHasError(response)) {
     dispatch({ isLoading: false, loginFormError: response.reason });
     return;

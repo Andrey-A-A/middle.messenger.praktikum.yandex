@@ -1,5 +1,5 @@
-FROM node:16.18.1-slim
+FROM --platform=linux/amd64 node:16.18.1-slim
 WORKDIR /var/www/app
-COPY . .
-CMD npm run server
+COPY . /var/www/app
+CMD npm run start
 EXPOSE 3000

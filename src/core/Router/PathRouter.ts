@@ -1,7 +1,7 @@
 import { CoreRouter } from './CoreRouter';
 
 export class PathRouter implements CoreRouter {
-  private routes: Record<string, any> = {};
+  private routes: Record<string, ()=>void> = {};
 
   private isStarted = false;
 
@@ -17,7 +17,7 @@ export class PathRouter implements CoreRouter {
     }
   }
 
-  private onRouteChange(pathname: string = window.location.pathname) {
+  onRouteChange(pathname: string = window.location.pathname) {
     const found = Object.entries(this.routes).some(([routeHash, callback]) => {
       if (routeHash === pathname) {
         
@@ -32,7 +32,7 @@ export class PathRouter implements CoreRouter {
     }
   }
 
-  use(pathname: string, callback: any) {
+  use(pathname: string, callback: ()=>void) {
     
     this.routes[pathname] = callback;
     return this;

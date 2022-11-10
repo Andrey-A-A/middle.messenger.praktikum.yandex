@@ -1,11 +1,10 @@
-// require('babel-core/register');
 import Block from '../../core/Block';
 import {withUser, withStore, withRouter } from '../../utils';
 import { CoreRouter } from '../../core';
 import {Store} from '../../core/Store'
 import { userUp } from '../../services/auth';
 import registerComponent from '../../core/registerComponent';
-import {urlAPI} from '../../index';
+import process from 'process';
 import Input from '../../components/input';
 import Data from '../../components/data';
 import Button from '../../components/Button';
@@ -161,7 +160,7 @@ export class ChangingProfilePage extends Block {
     return `
     <div class='wrap'>
       <div class='avatar'>
-        <img src='${urlAPI}/resources/${avatar}' alt='Семен' />
+        <img src='${process.env.API_ENDPOINT}/resources/${avatar}' alt='Семен' />
       </div>
     <div class="change__avatar">
     <p>Выберете вашу фотографию</p>

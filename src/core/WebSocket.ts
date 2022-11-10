@@ -3,7 +3,7 @@ import { chatsAPI } from '../api/chats';
 import { TokenDTO } from '../api/types';
 import { apiHasError } from '../utils';
 import { dateTransformer } from '../utils/apiTransformers';
-import {urlWS, urlAPI} from '../index';
+import process from 'process';
 
 
 type MessageChatData = {
@@ -28,7 +28,6 @@ export const renderChatPage = (data: any, state: AppState): void => {
   const messages: MessageChatData[] = data as MessageChatData[];
   if (messages.length === 0) {
     console.log('В этом чате нет сообщений');
-    // return
   }
   const selectedChatId = Number(localStorage.getItem('selectedChatId'))
 
@@ -40,7 +39,7 @@ export const renderChatPage = (data: any, state: AppState): void => {
         titleTop.innerHTML = chat.title
         if (chat.avatar) {
           const avatarTop = document.querySelector('.top-avatar') as HTMLImageElement;
-          const image = `${urlAPI}/resources/${chat.avatar}`
+          const image = `${process.env.API_ENDPOINT}/resources/${chat.avatar}`
           avatarTop.src = image;
         }
       } 
@@ -110,7 +109,6 @@ export const createConnection = async (
     const getTokenResponse: any = await chatsAPI.getToken(action);
     
     const responseToken = getTokenResponse.response;
-    console.log('token=', responseToken.token);
     
     if (apiHasError(getTokenResponse)) {
       console.log('Не смогли получить токен', getTokenResponse.reason);
@@ -120,7 +118,7 @@ export const createConnection = async (
     const userID = state.user?.id;
     
     const socket = new WebSocket(
-      `${urlWS}/chats/${userID}/${action}/${responseToken.token}`
+      `${process.env.WS_ENDPOINT}/chats/${userID}/${action}/${responseToken.token}`
     );
 
     socket.addEventListener("open", () => {
