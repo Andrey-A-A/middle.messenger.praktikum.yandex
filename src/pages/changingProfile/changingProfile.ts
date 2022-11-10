@@ -1,11 +1,11 @@
-require('babel-core/register');
+// require('babel-core/register');
 import Block from '../../core/Block';
 import {withUser, withStore, withRouter } from '../../utils';
 import { CoreRouter } from '../../core';
 import {Store} from '../../core/Store'
 import { userUp } from '../../services/auth';
 import registerComponent from '../../core/registerComponent';
-
+import {urlAPI} from '../../index';
 import Input from '../../components/input';
 import Data from '../../components/data';
 import Button from '../../components/Button';
@@ -69,7 +69,6 @@ export class ChangingProfilePage extends Block {
       onFocus: (): void => console.log('focus'),
       onAvatarUp: (): void => {
         const formAvatar = this.element?.querySelector(".change__avatar-file") as HTMLFormElement;
-        console.log('formAvatar=', formAvatar);
         const formData = new FormData(formAvatar);
 
         const xhr = new XMLHttpRequest();
@@ -146,8 +145,7 @@ export class ChangingProfilePage extends Block {
           this.props.store.dispatch(userUp, data);
         
         }
-        console.log('End!');
-        
+                
       }
     });
   }
@@ -163,7 +161,7 @@ export class ChangingProfilePage extends Block {
     return `
     <div class='wrap'>
       <div class='avatar'>
-        <img src='${process.env.API_ENDPOINT}/resources/${avatar}' alt='Семен' />
+        <img src='${urlAPI}/resources/${avatar}' alt='Семен' />
       </div>
     <div class="change__avatar">
     <p>Выберете вашу фотографию</p>

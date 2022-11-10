@@ -1,4 +1,4 @@
-require('babel-core/register');
+// require('babel-core/register');
 import Block from '../../core/Block';
 import { withUser, withStore, withRouter } from '../../utils';
 import { withChats } from '../../utils/withChats';

@@ -1,7 +1,7 @@
 import Block from '../../core/Block';
 import avatar from '../../assets/img/avatar.png';
 import clip from '../../assets/img/clip.svg'
-
+import {urlAPI} from '../../index';
 
 type RightSideProps = {
   onClick?: () => void;
@@ -28,7 +28,7 @@ export class RightSide extends Block {
         <div class='right__top-left'>
           <div class='right__top-avatar'>
             {{#if avatar}}
-              <img class='top-avatar' src="${process.env.API_ENDPOINT}/resources/{{avatar1}}" width="45" height="45" alt="avatar"/>
+              <img class='top-avatar' src="${urlAPI}/resources/{{avatar1}}" width="45" height="45" alt="avatar"/>
             {{else}}
               <img class='top-avatar' src='${avatar}' alt='avatar' width="45" height="45"/>
             {{/if}} 

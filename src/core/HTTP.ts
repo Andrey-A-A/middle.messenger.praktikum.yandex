@@ -49,7 +49,7 @@ class HTTP {
 
   request = (url:string, options: Options = {method: METHOD.GET}) => {
     const { headers = {'Content-Type': 'application/json'}, method, data } = options;
-    const realUrl = `${process.env.API_ENDPOINT}${url}`
+    const realUrl = `https://ya-praktikum.tech/api/v2${url}`
 
     return new Promise(function (resolve, reject) {
       if (!method) {

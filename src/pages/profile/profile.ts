@@ -1,4 +1,4 @@
-require('babel-core/register');
+// require('babel-core/register');
 import Block from '../../core/Block';
 import { withUser, withStore, withRouter } from '../../utils';
 import { CoreRouter } from '../../core';
@@ -8,6 +8,7 @@ import DataList from '../../components/dataList';
 import registerComponent from '../../core/registerComponent';
 import Button from '../../components/Button';
 import ErrorComponent from '../../components/error';
+import {urlAPI} from '../../index';
 import avatar from '../../assets/img/avatar.png';
 
 registerComponent(DataList);
@@ -51,7 +52,7 @@ console.log('props=', props);
     return `
     <div class='wrap'>
       <div class='avatar'>
-        <img src='${process.env.API_ENDPOINT}/resources/${avatar}' alt='${firstName}' />
+        <img src='${urlAPI}/resources/${avatar}' alt='${firstName}' />
       </div>
       <div class='name'>${firstName}</div>
       <div class='data'>

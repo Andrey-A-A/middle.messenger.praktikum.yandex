@@ -3,6 +3,8 @@ import { chatsAPI } from '../api/chats';
 import { TokenDTO } from '../api/types';
 import { apiHasError } from '../utils';
 import { dateTransformer } from '../utils/apiTransformers';
+import {urlWS, urlAPI} from '../index';
+
 
 type MessageChatData = {
   id?: number,
@@ -38,7 +40,7 @@ export const renderChatPage = (data: any, state: AppState): void => {
         titleTop.innerHTML = chat.title
         if (chat.avatar) {
           const avatarTop = document.querySelector('.top-avatar') as HTMLImageElement;
-          const image = `${process.env.API_ENDPOINT}/resources/${chat.avatar}`
+          const image = `${urlAPI}/resources/${chat.avatar}`
           avatarTop.src = image;
         }
       } 
@@ -118,7 +120,7 @@ export const createConnection = async (
     const userID = state.user?.id;
     
     const socket = new WebSocket(
-      `${process.env.WS_ENDPOINT}/chats/${userID}/${action}/${responseToken.token}`
+      `${urlWS}/chats/${userID}/${action}/${responseToken.token}`
     );
 
     socket.addEventListener("open", () => {
