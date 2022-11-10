@@ -1,7 +1,4 @@
 import  HTTP  from '../core/HTTP';
-import { APIError, UserDTO } from './types';
-import type { Options } from '../core/HTTP';
-
 
 export type UserRequestData = {
   login: string;
@@ -20,8 +17,6 @@ type PasswordRequestData = {
 type AvatarRequestData = {
   avatar: FormData;
 }
-
-type UserResponseData = {url: string, options: Options} | APIError;
 
 export const userAPI = {
   userUp: (data: UserRequestData) => HTTP.put('/user/profile', {data: data})

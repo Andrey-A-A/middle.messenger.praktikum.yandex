@@ -1,4 +1,3 @@
-require('babel-core/register');
 import Block from '../../core/Block';
 import { withUser, withStore, withRouter } from '../../utils';
 import { CoreRouter } from '../../core';
@@ -8,6 +7,7 @@ import DataList from '../../components/dataList';
 import registerComponent from '../../core/registerComponent';
 import Button from '../../components/Button';
 import ErrorComponent from '../../components/error';
+import process from 'process';
 import avatar from '../../assets/img/avatar.png';
 
 registerComponent(DataList);

@@ -46,7 +46,7 @@ export function validateForm(rules: ValidateRule[]) {
         return PASSWORD.test(value);
       }
       if (value.length === 0) {
-        errorMessage = 'Поле пароль не должно быть пустым';
+        errorMessage = 'Поле пароль не должен быть пустым';
         break;
       } else if (!isEmailValid(value)) {
         errorMessage = 'Пароль должен быть написан латиницей от 8 до 40 знаков, обязательно одна цифра и одна заглавная буква';

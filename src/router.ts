@@ -41,7 +41,7 @@ const routes = [
 ];
 
 export function initRouter(router: CoreRouter, store: Store<AppState>) {
-  //debugger
+  
   routes.forEach((route) => {
     
     router.use(route.path, () => {
