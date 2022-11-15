@@ -1,7 +1,5 @@
 import Block from '../../core/Block';
 
-import './error.css';
-
 interface ErrorProps {
   text?: string;
 }

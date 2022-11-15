@@ -1,8 +1,4 @@
 import  HTTP  from '../core/HTTP';
-import { APIError, ChatsDTO } from './types';
-import type { Options } from '../core/HTTP';
-
-
 
 export type ChatUpRequest = {
   title: string

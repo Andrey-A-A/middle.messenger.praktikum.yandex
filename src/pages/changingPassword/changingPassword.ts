@@ -1,8 +1,5 @@
-require('babel-core/register');
 import Block from '../../core/Block';
 import {withUser, withStore, withRouter } from '../../utils';
-import { CoreRouter } from '../../core';
-import { Store } from '../../core/Store';
 import { passwordUp } from '../../services/auth';
 import Input from '../../components/input';
 import Data from '../../components/data';
@@ -95,10 +92,9 @@ export class ChangingPasswordPage extends Block {
             newPassword: passowrdEl.value,
             replayPasswordValue: replayPasswordEl.value,
           }
-          console.log("Данные введенные в форму", data);
+          
           this.props.store.dispatch(passwordUp, {oldPassword: oldPasswordEl.value, newPassword: passowrdEl.value});
         }
-        console.log('End!');
         
       }
     });

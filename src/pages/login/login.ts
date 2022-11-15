@@ -31,7 +31,6 @@ export class LoginPage extends Block<LoginPageProps> {
 
   constructor() {
     super();
-    
     this.setProps({
       store: window.store,
       router: window.router, 

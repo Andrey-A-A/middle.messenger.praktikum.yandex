@@ -1,4 +1,3 @@
-require('babel-core/register');
 import Block from '../../core/Block';
 import { withUser, withStore, withRouter } from '../../utils';
 import { withChats } from '../../utils/withChats';
@@ -6,9 +5,7 @@ import { CoreRouter } from '../../core';
 import { Store } from '../../core/Store';
 import { addUser, chatsUp, deleteUser, getChatsList } from '../../services/chatsService';
 import { createConnection, sendMessage, renderChatPage } from '../../core/WebSocket';
-import { isEqual} from '../../utils/mydush/helpers'
-import ChatItem from '../../components/ChatItem';
-import RightSide from '../../components/RightSide';
+import {ChatItem} from '../../components/ChatItem/chatItem';
 import Input from '../../components/input';
 import Chat from '../../components/chat'
 import registerComponent from '../../core/registerComponent'
@@ -23,7 +20,6 @@ import clip from '../../assets/img/clip.svg'
 registerComponent(Input);
 registerComponent(Chat);
 registerComponent(ChatItem);
-registerComponent(RightSide);
 registerComponent(Button);
 registerComponent(Link);
 registerComponent(ErrorComponent);
@@ -158,16 +154,9 @@ export class ChatsPage extends Block {
       const messagesObj = JSON.parse(localStorage.messages)
       renderChatPage(messagesObj, window.store.state) ;
     } else {
-      console.log('сообщений в стейте пока нет');
-      
+      console.log('сообщений в стейте пока нет'); 
     }
-    
-    
-    console.log('window.store=', window.store);
-    
   }
-
-
 
   componentWillUnmount() {
     super.componentWillUnmount();

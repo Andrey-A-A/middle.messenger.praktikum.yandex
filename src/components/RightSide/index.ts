@@ -1,1 +1,0 @@
-export { RightSide as default } from './rightSide';

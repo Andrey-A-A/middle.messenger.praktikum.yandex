@@ -1,11 +1,10 @@
-require('babel-core/register');
 import Block from '../../core/Block';
 import {withUser, withStore, withRouter } from '../../utils';
 import { CoreRouter } from '../../core';
 import {Store} from '../../core/Store'
 import { userUp } from '../../services/auth';
 import registerComponent from '../../core/registerComponent';
-
+import process from 'process';
 import Input from '../../components/input';
 import Data from '../../components/data';
 import Button from '../../components/Button';
@@ -69,7 +68,6 @@ export class ChangingProfilePage extends Block {
       onFocus: (): void => console.log('focus'),
       onAvatarUp: (): void => {
         const formAvatar = this.element?.querySelector(".change__avatar-file") as HTMLFormElement;
-        console.log('formAvatar=', formAvatar);
         const formData = new FormData(formAvatar);
 
         const xhr = new XMLHttpRequest();
@@ -146,8 +144,7 @@ export class ChangingProfilePage extends Block {
           this.props.store.dispatch(userUp, data);
         
         }
-        console.log('End!');
-        
+                
       }
     });
   }

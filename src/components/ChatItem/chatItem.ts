@@ -1,5 +1,6 @@
 import Block from '../../core/Block';
 import avatar from '../../assets/img/avatar.png';
+import process from 'process';
 
 type ChatItemProps = {
   onClick?: () => void;
@@ -11,6 +12,7 @@ type ChatItemProps = {
   id?: number;
   href?: string;
 } 
+
 export class ChatItem extends Block {
   static componentName = 'ChatItem';
 

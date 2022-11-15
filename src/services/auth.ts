@@ -29,15 +29,12 @@ export const logout = async (dispatch: Dispatch<AppState>) => {
 
 export const signUp = async (
   dispatch: Dispatch<AppState>,
-  state: AppState,
   action: UserRequestData,
 ) => {
   dispatch({ isLoading: true });
 
   const response: any = await authAPI.signUp(action);
-  console.log('response', response.response as SignUpResponseDTO);
-  console.log('response', response);
-
+  
   if (apiHasError(response)) {
     dispatch({ isLoading: false, loginFormError: response.reason });
     return;
@@ -48,7 +45,6 @@ export const signUp = async (
 
 export const passwordUp = async (
   dispatch: Dispatch<AppState>,
-  state: AppState,
   action: UserRequestData,
 ) => {
   dispatch({ isLoading: true });
@@ -66,14 +62,12 @@ export const passwordUp = async (
 
 export const userUp = async (
   dispatch: Dispatch<AppState>,
-  state: AppState,
   action: UserRequestData,
 ) => {
   dispatch({ isLoading: true });
 
   const response = await userAPI.userUp(action);
-  console.log('response', response);
-
+  
   if (apiHasError(response)) {
     dispatch({ isLoading: false, loginFormError: response.reason });
     return;
@@ -90,7 +84,7 @@ export const avatarUp = async (
   dispatch({ isLoading: true });
 
   const response = await userAPI.userUp(action);
-  console.log('response', response);
+  
 
   if (apiHasError(response)) {
     dispatch({ isLoading: false, loginFormError: response.reason });
@@ -109,8 +103,7 @@ export const login = async (
   dispatch({ isLoading: true });
 
   const loginResponse = await authAPI.login(action);
-  console.log('loginResponse', loginResponse);
-
+  
   if (apiHasError(loginResponse)) {
     dispatch({ isLoading: false, loginFormError: loginResponse.reason });
     return;
