@@ -1,8 +1,8 @@
 declare module '*.svg' {
-  const value: any;
+  const value: HTMLElement & SVGElement;
   export = value;
 }
 declare module '*.png' {
-  const value: any;
+  const value: HTMLImageElement;
   export = value;
 }

@@ -26,7 +26,6 @@
   $clr: $white
 ) {
   width: $w;
-  //height: $h;
   color: $clr;
   font-size: $fs;
   line-height: $lh;
@@ -40,10 +39,5 @@
   text-transform: uppercase;
   margin: 25px 0;
   text-decoration: none;
-  @content; //в этом месте мы сможем подключать дополнительные стили
-
-  //&:hover {
-  //background-color: lighten($bg, 15%);
-  //
-  //}
+  @content;
 }

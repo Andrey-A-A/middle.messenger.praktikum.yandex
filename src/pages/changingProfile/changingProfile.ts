@@ -1,11 +1,10 @@
-require('babel-core/register');
 import Block from '../../core/Block';
 import {withUser, withStore, withRouter } from '../../utils';
 import { CoreRouter } from '../../core';
 import {Store} from '../../core/Store'
-import { userUp } from '../../services/auth';
+import { avatarUp, userUp } from '../../services/auth';
 import registerComponent from '../../core/registerComponent';
-
+import process from 'process';
 import Input from '../../components/input';
 import Data from '../../components/data';
 import Button from '../../components/Button';
@@ -69,9 +68,8 @@ export class ChangingProfilePage extends Block {
       onFocus: (): void => console.log('focus'),
       onAvatarUp: (): void => {
         const formAvatar = this.element?.querySelector(".change__avatar-file") as HTMLFormElement;
-        console.log('formAvatar=', formAvatar);
         const formData = new FormData(formAvatar);
-
+        
         const xhr = new XMLHttpRequest();
         xhr.open('PUT', 'https://ya-praktikum.tech/api/v2/user/profile/avatar');
         xhr.withCredentials = true;
@@ -146,8 +144,7 @@ export class ChangingProfilePage extends Block {
           this.props.store.dispatch(userUp, data);
         
         }
-        console.log('End!');
-        
+                
       }
     });
   }
@@ -161,6 +158,8 @@ export class ChangingProfilePage extends Block {
     }
 
     return `
+
+  
     <div class='wrap'>
       <div class='avatar'>
         <img src='${process.env.API_ENDPOINT}/resources/${avatar}' alt='Семен' />

@@ -3,6 +3,8 @@ import { chatsAPI } from '../api/chats';
 import { TokenDTO } from '../api/types';
 import { apiHasError } from '../utils';
 import { dateTransformer } from '../utils/apiTransformers';
+import process from 'process';
+
 
 type MessageChatData = {
   id?: number,
@@ -26,7 +28,6 @@ export const renderChatPage = (data: any, state: AppState): void => {
   const messages: MessageChatData[] = data as MessageChatData[];
   if (messages.length === 0) {
     console.log('В этом чате нет сообщений');
-    // return
   }
   const selectedChatId = Number(localStorage.getItem('selectedChatId'))
 
@@ -108,7 +109,6 @@ export const createConnection = async (
     const getTokenResponse: any = await chatsAPI.getToken(action);
     
     const responseToken = getTokenResponse.response;
-    console.log('token=', responseToken.token);
     
     if (apiHasError(getTokenResponse)) {
       console.log('Не смогли получить токен', getTokenResponse.reason);

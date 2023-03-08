@@ -243,12 +243,12 @@ private _compile(): DocumentFragment {
       /**
        * Ищем элемент layout-а, куда вставлять детей
        */
-    //   const layoutContent = content.querySelector('[data-layout="1"]');
+      const layoutContent = content.querySelector('[data-layout="1"]');
 
-    //   if (layoutContent && stubChilds.length) {
-    //     layoutContent.append(...stubChilds);
-    //   }
-    // });
+      if (layoutContent && stubChilds.length) {
+        layoutContent.append(...stubChilds);
+      }
+    
 
     /**
        * Ищем элемент slota-а, куда вставлять детей
