@@ -1,5 +1,3 @@
-import { request } from "http";
-
 enum METHOD {
   GET = 'GET',
   POST = 'POST',
